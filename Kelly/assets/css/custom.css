@@ -1,0 +1,702 @@
+/* Importuojami šriftai */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@400;700&display=swap');
+
+:root{
+    --primary:#0b3d5a;
+    --accent:#d94834;
+    --text:#222;
+    --muted:#5f6b75;
+}
+
+/* Pagrindinis teksto stilius — švarus sans-serif */
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.75 !important;
+    color: var(--text) !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Antraštėms naudojamas kontrastingas serif šriftas */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    color: var(--primary) !important;
+    margin-top: 1.2rem !important;
+    margin-bottom: 0.6rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.015em !important;
+}
+
+/* Skirtingi antraščių lygiai su aiškiais skirtumais */
+h1 {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    color: #07243a !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 0.5rem !important;
+}
+
+h2 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    color: #0a4f73 !important;
+    letter-spacing: -0.02em !important;
+}
+
+h3 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    color: #0e6b96 !important;
+}
+
+h4 {
+    font-size: 1.125rem !important;
+    font-weight: 600 !important;
+    color: #0f7fb3 !important;
+}
+
+h5 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #167fb8 !important;
+}
+
+h6 {
+    font-size: 0.85rem !important;
+    font-weight: 700 !important;
+    color: var(--accent) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+}
+
+/* Pastraipų stilius */
+p {
+    font-size: 1rem !important;
+    color: #7aa23c !important;
+    margin-bottom: 1.125rem !important;
+    line-height: 1.9 !important;
+}
+
+/* Akcentuotos pirmos pastraipos klasė */
+p.lead {
+    font-size: 1.125rem !important;
+    color: var(--text) !important;
+    font-weight: 500 !important;
+    line-height: 1.95 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Rodyti aiškų skirtumą tarp antraštės ir pastraipos */
+h1 + p, h2 + p, h3 + p {
+    margin-top: 0.35rem !important;
+}
+
+/* Nuorodos ir akcentai */
+a {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+    border-bottom: 1px dashed rgba(217,72,52,0.15) !important;
+}
+a:hover { text-decoration: underline !important; }
+
+/* Mygtukai ir nuorodos — vizualiai skiriasi nuo pradinio šablono */
+/* spalvų kintamieji mygtukams */
+:root {
+  --btn-start: #ff8a65;
+  --btn-end:   #d94834;
+  --btn-text:  #ffffff;
+  --btn-shadow: rgba(217,72,52,0.22);
+  --link-underline: rgba(10,75,115,0.12);
+}
+
+/* Bendri mygtuko stiliai (taikoma <button>, .btn, a.btn, input[type=submit]) */
+.btn,
+button,
+input[type="submit"],
+input[type="button"],
+a.btn {
+  display: inline-block !important;
+  padding: 0.55rem 1.15rem !important;
+  border-radius: 999px !important;               /* pill shape */
+  background: linear-gradient(90deg,var(--btn-start),var(--btn-end)) !important;
+  color: var(--btn-text) !important;
+  border: 0 !important;
+  box-shadow: 0 10px 24px var(--btn-shadow) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  text-decoration: none !important;
+  transition: transform .14s ease, box-shadow .14s ease, opacity .14s ease !important;
+  cursor: pointer !important;
+}
+
+/* Hover — pakelti ir šiek tiek paryškinti gradientą */
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+a.btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 18px 38px rgba(217,72,52,0.28) !important;
+  opacity: 0.98 !important;
+}
+
+/* Active / pressed efekitas */
+.btn:active,
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active,
+a.btn:active {
+  transform: translateY(0) scale(.995) !important;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12) !important;
+  opacity: 0.96 !important;
+}
+
+/* Fokus — aiškus švytėjimas prieinama prieiga */
+.btn:focus,
+button:focus,
+input[type="submit"]:focus,
+a.btn:focus {
+  outline: 3px solid rgba(13,110,253,0.12) !important;
+  outline-offset: 3px !important;
+}
+
+/* Outline (tuščias) variantas */
+.btn-outline,
+button.btn-outline,
+a.btn-outline {
+  background: transparent !important;
+  color: var(--primary) !important;
+  border: 2px solid var(--primary) !important;
+  border-radius: 10px !important;
+  padding: 0.45rem 0.9rem !important;
+  box-shadow: none !important;
+}
+
+/* Mažesnis mygtukas ir didesnis variantas */
+.btn-sm { padding: 0.35rem 0.7rem !important; font-size: 0.9rem !important; }
+.btn-lg { padding: 0.9rem 1.6rem !important; font-size: 1.05rem !important; }
+
+/* Nuorodos — animuota apatinė linija / spalvos */
+a {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  position: relative !important;
+  padding-bottom: 0.06em !important;
+}
+
+/* dekoratyvi "požymė" kaip subtili apatinė linija */
+a::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: -2px !important;
+  height: 3px !important;
+  width: 100% !important;
+  background: linear-gradient(90deg, rgba(217,72,52,0.28), rgba(7,36,58,0.12)) !important;
+  transform: scaleX(0) !important;
+  transform-origin: left center !important;
+  transition: transform .22s cubic-bezier(.2,.9,.2,1) !important;
+  border-radius: 3px !important;
+  pointer-events: none !important;
+}
+
+/* hover nuorodai išsiplečia apatinė linija ir keičiasi spalva */
+a:hover::after {
+  transform: scaleX(1) !important;
+}
+a:hover {
+  color: #c22b17 !important;
+}
+
+/* Specialūs linkų klasės spalvoms */
+.text-accent   { color: var(--accent) !important; }
+.text-olive    { color: #7aa23c !important; }
+.text-cyan     { color: #0dcaf0 !important; }
+.text-purple   { color: #6f42c1 !important; }
+
+/* Jei šablonas vis dar perrašo — didesnis specifikumas (pvz. mygtukams aukštesnė prioritetinė taisyklė) */
+body .btn,
+body button,
+body input[type="submit"],
+body a.btn { /* šiek tiek didesnis specifikumas */ }
+
+/* Sekcijų tarpai ir blokų stiliai — Apie / Resume / Portfolio */
+/* Nuoseklus tarpų dydis */
+:root {
+  --section-padding: 64px;
+  --section-gap: 20px;
+  --card-bg: #ffffff;
+  --card-border: rgba(10,36,58,0.06);
+  --card-shadow: rgba(7,36,58,0.06);
+}
+
+.about.section,
+.resume.section,
+.portfolio.section {
+  padding-top: var(--section-padding) !important;
+  padding-bottom: var(--section-padding) !important;
+}
+
+/* Vienodas tarpas tarp pirmo lygio elementų konteineryje */
+.about .container > *,
+.resume .container > *,
+.portfolio .container > * {
+  margin-bottom: var(--section-gap) !important;
+}
+
+/* Bloko (card) išvaizda turinio blokams */
+.about .content,
+.resume .container > ul,
+.portfolio .section > h4,
+.portfolio img,
+.about .media-wrapper,
+#resume ul,
+#portfolio .gallery {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 24px var(--card-shadow) !important;
+}
+
+/* Tinkamas padding turinio blokams */
+.about .content,
+#resume ul {
+  padding: 22px !important;
+}
+
+/* Video ir iframe — responsyvūs, užapvalinti ir su šešėliu */
+.about video,
+.about iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 8px 20px rgba(7,36,58,0.08) !important;
+}
+
+/* Resume: paryškinti list items ir aiškus tarpas */
+#resume ul {
+  list-style: none !important;
+  padding: 18px !important;
+}
+#resume ul li {
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.6rem !important;
+  border-bottom: 1px dashed rgba(10,36,58,0.04) !important;
+}
+
+/* Portfolio: tvarkingas grid ir responsive elgsena */
+#portfolio img {
+  width: calc(50% - 16px) !important;
+  margin: 8px !important;
+  height: auto !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  border-radius: 8px !important;
+  object-fit: cover !important;
+  box-shadow: 0 8px 20px rgba(7,36,58,0.08) !important;
+  border: 1px solid rgba(10,36,58,0.05) !important;
+}
+
+/* Mobiliai: vienas stulpelis portfolio */
+@media (max-width: 768px) {
+  :root { --section-padding: 48px; }
+  #portfolio img { width: 100% !important; margin: 8px 0 !important; }
+  .about .content, #resume ul { padding: 16px !important; }
+}
+
+/* Mažesni koregavimai: nuoseklus vidinis spacing */
+.about .content h2,
+.portfolio section h4,
+#resume h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+/* Jei norite pabrėžti korteles dar labiau, naudokite .content-card klasę HTML elemente */
+.content-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  box-shadow: 0 12px 28px rgba(7,36,58,0.08) !important;
+}
+
+/* Sekcijų tarpai ir blokų stiliai — Apie / Resume / Portfolio */
+/* Nuoseklus tarpų dydis */
+:root {
+  --section-padding: 64px;
+  --section-gap: 20px;
+  --card-bg: #ffffff;
+  --card-border: rgba(10,36,58,0.06);
+  --card-shadow: rgba(7,36,58,0.06);
+}
+
+.about.section,
+.resume.section,
+.portfolio.section {
+  padding-top: var(--section-padding) !important;
+  padding-bottom: var(--section-padding) !important;
+}
+
+/* Vienodas tarpas tarp pirmo lygio elementų konteineryje */
+.about .container > *,
+.resume .container > *,
+.portfolio .container > * {
+  margin-bottom: var(--section-gap) !important;
+}
+
+/* Bloko (card) išvaizda turinio blokams */
+.about .content,
+.resume .container > ul,
+.portfolio .section > h4,
+.portfolio img,
+.about .media-wrapper,
+#resume ul,
+#portfolio .gallery {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 24px var(--card-shadow) !important;
+}
+
+/* Tinkamas padding turinio blokams */
+.about .content,
+#resume ul {
+  padding: 22px !important;
+}
+
+/* Video ir iframe — responsyvūs, užapvalinti ir su šešėliu */
+.about video,
+.about iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  margin-bottom: 16px !important;
+  box-shadow: 0 8px 20px rgba(7,36,58,0.08) !important;
+}
+
+/* Resume: paryškinti list items ir aiškus tarpas */
+#resume ul {
+  list-style: none !important;
+  padding: 18px !important;
+}
+#resume ul li {
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.6rem !important;
+  border-bottom: 1px dashed rgba(10,36,58,0.04) !important;
+}
+
+/* Portfolio: tvarkingas grid ir responsive elgsena */
+#portfolio img {
+  width: calc(50% - 16px) !important;
+  margin: 8px !important;
+  height: auto !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+  border-radius: 8px !important;
+  object-fit: cover !important;
+  box-shadow: 0 8px 20px rgba(7,36,58,0.08) !important;
+  border: 1px solid rgba(10,36,58,0.05) !important;
+}
+
+/* Mobiliai: vienas stulpelis portfolio */
+@media (max-width: 768px) {
+  :root { --section-padding: 48px; }
+  #portfolio img { width: 100% !important; margin: 8px 0 !important; }
+  .about .content, #resume ul { padding: 16px !important; }
+}
+
+/* Mažesni koregavimai: nuoseklus vidinis spacing */
+.about .content h2,
+.portfolio section h4,
+#resume h2 {
+  margin-top: 0 !important;
+  margin-bottom: 0.6rem !important;
+}
+
+/* Jei norite pabrėžti korteles dar labiau, naudokite .content-card klasę HTML elemente */
+.content-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  box-shadow: 0 12px 28px rgba(7,36,58,0.08) !important;
+}
+
+/* NAV & PROGRESS — vizualūs pakeitimai (nekeičiant JS/HTML) */
+
+/* 1) Navigacijos juosta (header) */
+#header.header,
+.header.light-background {
+  background: linear-gradient(180deg, rgba(108, 172, 221, 0.96), rgba(90, 159, 211, 0.88)) !important;
+  padding: 1.05rem 1rem !important;              /* šiek tiek didesnis aukštis */
+  border-bottom-left-radius: 12px !important;
+  border-bottom-right-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(7,36,58,0.18) !important;
+  transition: background .25s ease, transform .12s ease !important;
+}
+
+/* Stilingesni nav-link'ai (aiškiai kitaip nei šablonas) */
+#header .nav-link {
+  color: rgba(255,255,255,0.95) !important;
+  font-weight: 600 !important;
+  padding: .55rem .75rem !important;
+  border-radius: 8px !important;
+  transition: color .18s ease, background .18s ease, transform .12s ease !important;
+}
+#header .nav-link:hover,
+#header .nav-link:focus {
+  background: rgba(255,255,255,0.06) !important;
+  color: #ffdede !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Mobilioje versijoje mažesnis padding, vis tiek užapvalinta */
+@media (max-width: 768px) {
+  #header.header { padding: 0.8rem 0.8rem !important; }
+  #header .nav-link { padding: .45rem .6rem !important; }
+}
+
+/* 2) Progreso juostos (.skills .progress-bar) */
+/* padidintas aukštis ir pill forma */
+.skills .progress {
+  height: 18px !important;
+  background: rgba(10,36,58,0.06) !important;
+  border-radius: 999px !important;
+  padding: 3px !important; /* vidinis tarpas tarp krašto ir baro */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 6px 18px rgba(7,36,58,0.05) !important;
+}
+
+.skills .progress .progress-bar {
+  height: 100% !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #ff8a65 0%, #d94834 40%, #07243a 100%) !important;
+  box-shadow: 0 6px 18px rgba(217,72,52,0.14) !important;
+  transition: width 0.9s cubic-bezier(.2,.9,.2,1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* subtili animacija juostoje: plūduriuojanti šviesa */
+.skills .progress .progress-bar::before {
+  content: "" !important;
+  position: absolute !important;
+  top: -40% !important;
+  left: -30% !important;
+  width: 60% !important;
+  height: 180% !important;
+  background: linear-gradient(120deg, rgba(255,255,255,0.18), rgba(255,255,255,0.02), rgba(255,255,255,0.18)) !important;
+  transform: skewX(-20deg) translateX(-120%) !important;
+  transition: transform 1.6s ease-in-out !important;
+  pointer-events: none !important;
+}
+
+/* paleidus (ar atnaujinus width) perkelti šviesą į dešinę */
+.skills .progress .progress-bar[style]::before {
+  transform: skewX(-20deg) translateX(120%) !important;
+}
+
+/* responsive: aukštis mažesniems ekranams */
+@media (max-width: 768px) {
+  .skills .progress { height: 14px !important; padding: 2px !important; }
+}
+
+/* užtikrinti, kad šios taisyklės būtų taikomos prieš Bootstrap, jei reikia */
+body #header.header,
+body .skills .progress .progress-bar { outline: none !important; }
+
+/* LIST STYLES: numeruotas (counters) ir nenumeruotas (pseudo bullets) */
+/* Taikoma globaliai + papildomi taikomi .about / #resume / #portfolio sekcijose */
+
+/* -- Ordered list using counters -- */
+ol.counter-list,
+.about ol,
+#resume ol,
+#portfolio ol {
+  counter-reset: item !important;
+  list-style: none !important;
+  padding-left: 3.2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+ol.counter-list > li,
+.about ol > li,
+#resume ol > li,
+#portfolio ol > li {
+  counter-increment: item !important;
+  position: relative !important;
+  padding: .6rem 0 .6rem 0 !important;
+  margin-bottom: .45rem !important;
+  background: rgba(7,36,58,0.02) !important;
+  border-radius: 10px !important;
+  padding-left: 1rem !important;
+}
+
+/* counter badge */
+ol.counter-list > li::before,
+.about ol > li::before,
+#resume ol > li::before,
+#portfolio ol > li::before {
+  content: counter(item, decimal-leading-zero) !important;
+  position: absolute !important;
+  left: -3.2rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 44px !important;
+  height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: linear-gradient(135deg,#ff8a65 0%, #d94834 60%) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 18px rgba(7,36,58,0.10) !important;
+  font-size: .95rem !important;
+}
+
+/* Nested ordered lists: smaller badge and inset */
+ol.counter-list li ol,
+.about ol li ol,
+#resume ol li ol,
+#portfolio ol li ol {
+  counter-reset: subitem !important;
+  padding-left: 2.6rem !important;
+  margin-top: .5rem !important;
+  background: transparent !important;
+}
+
+ol.counter-list li ol > li::before,
+.about ol li ol > li::before,
+#resume ol li ol > li::before,
+#portfolio ol li ol > li::before {
+  content: counters(item, ".") !important;
+  left: -2.6rem !important;
+  width: 34px !important;
+  height: 34px !important;
+  font-size: .85rem !important;
+  border-radius: 8px !important;
+}
+
+/* -- Unordered list with custom pseudo-bullets -- */
+ul.fancy-list,
+.about ul,
+#resume ul,
+#portfolio ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding-left: 1.6rem !important;
+}
+
+ul.fancy-list > li,
+.about ul > li,
+#resume ul > li,
+#portfolio ul > li {
+  position: relative !important;
+  padding: .45rem 0 .45rem 0 !important;
+  margin-bottom: .4rem !important;
+  padding-left: .8rem !important;
+  border-radius: 8px !important;
+}
+
+/* decorative bullet */
+ul.fancy-list > li::before,
+.about ul > li::before,
+#resume ul > li::before,
+#portfolio ul > li::before {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(180deg,#7aa23c,#0f7fb3) !important;
+  box-shadow: 0 6px 14px rgba(7,36,58,0.08) !important;
+  border: 2px solid rgba(255,255,255,0.18) !important;
+}
+
+/* Nested unordered lists: smaller square bullets */
+ul.fancy-list li ul,
+.about ul li ul,
+#resume ul li ul,
+#portfolio ul li ul {
+  padding-left: 1.2rem !important;
+  margin-top: .5rem !important;
+}
+
+ul.fancy-list li ul > li::before,
+.about ul li ul > li::before,
+#resume ul li ul > li::before,
+#portfolio ul li ul > li::before {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 2px !important;
+  background: #167fb8 !important;
+  left: -0.6rem !important;
+  border: none !important;
+}
+
+/* Accessibility: increase hit area and readable contrast */
+ol.counter-list > li,
+ul.fancy-list > li {
+  min-height: 48px !important;
+  line-height: 1.35 !important;
+  padding-top: .6rem !important;
+  padding-bottom: .6rem !important;
+}
+
+/* Services table styling: header highlight, zebra rows, centered content, equal padding */
+#services .services-table-wrap { overflow-x: auto !important; }
+
+#services .services-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 0 auto !important;
+  min-width: 480px !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 24px rgba(7,36,58,0.06) !important;
+}
+
+#services .services-table thead th {
+  background: linear-gradient(90deg, #6cb0e6 0%, #4f99d0 100%) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  padding: 14px 18px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+#services .services-table td {
+  padding: 14px 18px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  color: #263238 !important;
+  border-bottom: 1px solid rgba(7,36,58,0.04) !important;
+}
+
+#services .services-table tbody tr:nth-child(even) {
+  background: rgba(7,36,58,0.03) !important;
+}
+
+#services .services-table tbody tr:hover {
+  background: linear-gradient(90deg, rgba(217,72,52,0.04), rgba(7,36,58,0.04)) !important;
+  transform: translateY(-2px) !important;
+  transition: background .18s ease, transform .12s ease !important;
+}
+
+@media (max-width: 600px) {
+  #services .services-table thead th { font-size: .86rem !important; padding: 10px 12px !important; }
+  #services .services-table td { padding: 10px 12px !important; font-size: .95rem !important; }
+}
