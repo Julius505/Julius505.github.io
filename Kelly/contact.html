@@ -120,23 +120,47 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
+                  <label for="first-name" class="pb-2">Vardas</label>
+                  <input type="text" name="first_name" id="first-name" class="form-control" required>
                 </div>
 
                 <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
+                  <label for="last-name" class="pb-2">Pavardė</label>
+                  <input type="text" name="last_name" id="last-name" class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="email-field" class="pb-2">El. paštas</label>
+                  <input type="email" class="form-control" name="email" id="email-field" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="phone-field" class="pb-2">Telefono numeris</label>
+                  <input type="tel" class="form-control" name="phone" id="phone-field" placeholder="+370 600 00000">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
+                  <label for="address-field" class="pb-2">Adresas</label>
+                  <input type="text" class="form-control" name="address" id="address-field">
                 </div>
 
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
+                <!-- Evaluation sliders 1-10 -->
+                <div class="col-12">
+                  <label class="pb-2">Klausimas 1: Bendras įvertinimas (1–10)</label>
+                  <input type="range" class="form-range" name="q1" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent = this.value">
+                  <span class="ms-2">5</span>
+                </div>
+
+                <div class="col-12">
+                  <label class="pb-2">Klausimas 2: Pasitenkinimas (1–10)</label>
+                  <input type="range" class="form-range" name="q2" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent = this.value">
+                  <span class="ms-2">5</span>
+                </div>
+
+                <div class="col-12">
+                  <label class="pb-2">Klausimas 3: Rekomendacija (1–10)</label>
+                  <input type="range" class="form-range" name="q3" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent = this.value">
+                  <span class="ms-2">5</span>
                 </div>
 
                 <div class="col-md-12 text-center">
@@ -144,7 +168,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="btn">Submit</button>
                 </div>
 
               </div>
@@ -201,6 +225,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
