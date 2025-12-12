@@ -302,6 +302,42 @@ body a.btn { /* šiek tiek didesnis specifikumas */ }
   border: 1px solid rgba(10,36,58,0.05) !important;
 }
 
+/* Win overlay for the memory game */
+#game-win-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4,12,20,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.game-win-modal {
+  background: linear-gradient(180deg,#fff 0%, #f7fbff 100%);
+  border-radius: 14px;
+  padding: 28px 32px;
+  box-shadow: 0 20px 60px rgba(2,10,20,0.4);
+  text-align: center;
+  max-width: 420px;
+  width: 92%;
+  transform: translateY(0);
+}
+.game-win-modal h2 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  color: #0b3d5a;
+}
+.game-win-modal p {
+  margin: 0 0 18px 0;
+  color: #374151;
+}
+.game-win-actions { margin-top: 6px; }
+.game-win-actions .btn { padding: 0.6rem 1rem; font-weight: 700; }
+
+@media (prefers-reduced-motion: reduce) {
+  #game-win-overlay, .game-win-modal { transition: none !important; animation: none !important; }
+}
+
 /* Mobiliai: vienas stulpelis portfolio */
 @media (max-width: 768px) {
   :root { --section-padding: 48px; }
