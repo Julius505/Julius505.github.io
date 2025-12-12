@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Variklio valdymo sąsaja</title>
+  <link rel="stylesheet" href="engine-control.css" />
+</head>
+<body>
+  <header class="bar">
+    <h1>Variklio valdymo sąsaja</h1>
+    <p class="small">Simuliacija: RPM, temperatūra, tepalo slėgis</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="group">
+        <button id="startBtn" class="btn green">Start</button>
+        <button id="stopBtn" class="btn red">Stop</button>
+        <button id="eStopBtn" class="btn orange">Emergency Stop</button>
+      </div>
+
+      <div class="group">
+        <label for="ignition">Uždegimas</label>
+        <input id="ignition" type="checkbox" />
+      </div>
+
+      <div class="group">
+        <label for="throttle">Gazo padėtis <span id="throttleVal">0%</span></label>
+        <input id="throttle" type="range" min="0" max="100" value="0" />
+      </div>
+
+      <div class="group gauges-small">
+        <div class="gauge">
+          <div class="label">Pavaros</div>
+          <div id="gearDisplay">N</div>
+          <div class="gear-buttons" role="group" aria-label="Pavarų perjungimas">
+            <button class="gear-btn" data-gear="R">R</button>
+            <button class="gear-btn" data-gear="N">N</button>
+            <button class="gear-btn" data-gear="1">1</button>
+            <button class="gear-btn" data-gear="2">2</button>
+            <button class="gear-btn" data-gear="3">3</button>
+            <button class="gear-btn" data-gear="4">4</button>
+            <button class="gear-btn" data-gear="5">5</button>
+            <button class="gear-btn" data-gear="6">6</button>
+          </div>
+        </div>
+        <div class="gauge">
+          <div class="label">Akumuliatorius</div>
+          <div id="battery">12.6V</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="status">
+      <div class="panel">
+        <h2>Rodmenys</h2>
+        <div class="metric">
+          <div class="metric-label">RPM</div>
+          <div id="rpm" class="metric-value">0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Temperatūra</div>
+          <div id="temp" class="metric-value">20 °C</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Tepalo slėgis</div>
+          <div id="oil" class="metric-value">0 bar</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Indikatoriai</h2>
+        <div class="indicators">
+          <div class="indicator" id="chkRunning">Running: <span>NO</span></div>
+          <div class="indicator" id="chkIgnition">Ignition: <span>OFF</span></div>
+          <div class="indicator" id="chkFault">Fault: <span>None</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="log panel">
+      <h2>Žurnalas</h2>
+      <div id="log" class="log-box" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="bar small">Sukurta: Variklio valdymo UI demonstracija</footer>
+
+  <script src="engine-control.js"></script>
+</body>
+</html>
