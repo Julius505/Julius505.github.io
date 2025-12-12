@@ -700,3 +700,327 @@ ul.fancy-list > li {
   #services .services-table thead th { font-size: .86rem !important; padding: 10px 12px !important; }
   #services .services-table td { padding: 10px 12px !important; font-size: .95rem !important; }
 }
+
+
+
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIcon {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+/* Apply fade-in to main sections (non-intrusive, can be overridden) */
+.section {
+  opacity: 0; /* start hidden so animation is visible */
+  animation: fadeInSection 0.7s ease forwards;
+  animation-delay: 0.12s;
+}
+
+/* Social icons — gentle floating loop, staggered delays for each */
+.header-social-links a {
+  display: inline-block;
+  animation: floatIcon 3s ease-in-out infinite;
+  transition: transform .12s ease;
+}
+.header-social-links a:nth-child(1) { animation-delay: 0s; }
+.header-social-links a:nth-child(2) { animation-delay: 0.12s; }
+.header-social-links a:nth-child(3) { animation-delay: 0.24s; }
+.header-social-links a:nth-child(4) { animation-delay: 0.36s; }
+
+/* Pause floating on hover/focus for better UX */
+.header-social-links a:hover,
+.header-social-links a:focus {
+  animation-play-state: paused;
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Small utility: reveal-delay class to stagger other elements if needed */
+.reveal-delay-1 { animation-delay: 0.18s !important; }
+.reveal-delay-2 { animation-delay: 0.3s !important; }
+.reveal-delay-3 { animation-delay: 0.45s !important; }
+
+/* ==================================================
+   Page preloader (CSS-only) — spinner by default,
+   optional pulsing-dots variant via `.preloader-dots` class
+   Uses pseudo-elements so no HTML changes required.
+================================================== */
+
+#preloader {
+  position: fixed !important;
+  inset: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255,255,255,0.95) !important;
+  z-index: 99999 !important;
+  pointer-events: auto !important;
+  /* fade out after load (CSS-only) — tweak delay as needed */
+  animation: preloader-fade 0.6s ease 1.1s forwards !important;
+}
+
+/* Default spinner (using ::before) */
+#preloader::before {
+  content: "" !important;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  border: 6px solid rgba(7,36,58,0.12) !important;
+  border-top-color: var(--accent) !important;
+  box-shadow: 0 6px 18px rgba(7,36,58,0.06) !important;
+  animation: spin 0.9s linear infinite !important;
+  display: block !important;
+}
+
+/* Alternative: pulsing dots variant (add class 'preloader-dots' to #preloader in HTML) */
+#preloader.preloader-dots::before {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: var(--accent) !important;
+  box-shadow: 24px 0 0 var(--accent), -24px 0 0 var(--accent) !important;
+  animation: dots 1s ease-in-out infinite !important;
+}
+
+/* Small accessible fallback text (visually hidden) */
+#preloader::after {
+  content: "Loading..." !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes dots {
+  0%   { transform: translateY(0) scale(1); opacity: 0.85; }
+  50%  { transform: translateY(-6px) scale(1.08); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 0.85; }
+}
+
+/* Fade-out wrapper animation: keeps preloader visible briefly then hides it */
+@keyframes preloader-fade {
+  0%   { opacity: 1; visibility: visible; }
+  90%  { opacity: 1; visibility: visible; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* If you prefer the preloader decorative only inside a section, add .preloader-inline to show smaller */
+#preloader.preloader-inline {
+  position: relative !important;
+  background: transparent !important;
+  inset: auto !important;
+  width: 100% !important;
+  height: 80px !important;
+  justify-content: center !important;
+}
+
+/* Respect users who prefer reduced motion: disable or greatly simplify animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Remove section entrance motion and ensure content is visible */
+  .section {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Stop icon floating */
+  .header-social-links a {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Preloader: avoid motion and do not block the page for reduced-motion users */
+  #preloader {
+    animation: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+  #preloader::before,
+  #preloader.preloader-dots::before {
+    animation: none !important;
+    display: none !important;
+  }
+
+  /* Ensure focus outlines and other interaction cues remain available */
+  :focus {
+    outline: 3px solid rgba(13,110,253,0.12) !important;
+    outline-offset: 3px !important;
+  }
+}
+
+/* Animated gradient background for Services section */
+.services.section {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.services.section::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  /* multi-stop gradient — choose colors (adjust as desired) */
+  background: linear-gradient(120deg,
+    #0066cc 0%,
+    #00b3ff 25%,
+    #7f5af0 50%,
+    #ff6b6b 75%,
+    #ffd166 100%);
+  background-size: 200% 200% !important;
+  opacity: 0.16 !important; /* low opacity to keep text readable */
+  filter: saturate(1.05) contrast(0.95) !important;
+  pointer-events: none !important;
+  animation: gradientShift 14s ease-in-out infinite, gradientPulse 6s ease-in-out infinite;
+  transform: translateZ(0); /* promote to its own layer for smoother animation */
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientPulse {
+  0% { opacity: 0.12; transform: scale(1); }
+  50% { opacity: 0.22; transform: scale(1.02); }
+  100% { opacity: 0.12; transform: scale(1); }
+}
+
+/* Slightly darker overlay for enhanced contrast on large screens */
+.services.section::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  background: rgba(10,20,30,0.04) !important;
+  pointer-events: none !important;
+}
+
+/* Respect reduced motion — stop the gradient movement and pulse */
+@media (prefers-reduced-motion: reduce) {
+  .services.section::before {
+    animation: none !important;
+    background-position: 50% 50% !important;
+    opacity: 0.14 !important;
+    transform: none !important;
+  }
+  .services.section::after { background: rgba(10,20,30,0.06) !important; }
+}
+
+/* --------------------------------------------------
+   About section decorative shapes + animations
+   - circle: rotates + scales
+   - triangle: floats diagonally
+   - square: rotates slowly + floats vertically
+--------------------------------------------------- */
+.about.section { position: relative !important; }
+.about-decor {
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+.about .container { position: relative; z-index: 1; }
+.about-decor .a-shape {
+  position: absolute !important;
+  display: block !important;
+  opacity: 0.28 !important;
+  will-change: transform, opacity !important;
+  mix-blend-mode: screen !important;
+  filter: blur(0.4px) !important;
+}
+
+/* Circle */
+.about-decor .a-circle {
+  width: 160px !important;
+  height: 160px !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5), rgba(255,255,255,0.05)), rgba(127,90,255,0.16) !important;
+  top: 2% !important;
+  right: 4% !important;
+  transform-origin: center center !important;
+  animation: aboutRotate 20s linear infinite, aboutPulse 6.5s ease-in-out infinite;
+}
+
+/* Triangle */
+.about-decor .a-triangle {
+  width: 0 !important;
+  height: 0 !important;
+  border-left: 48px solid transparent !important;
+  border-right: 48px solid transparent !important;
+  border-bottom: 82px solid rgba(255,183,77,0.18) !important;
+  left: 6% !important;
+  top: 18% !important;
+  animation: aboutFloatDiag 8s ease-in-out infinite, aboutRotateTiny 9s linear infinite;
+}
+
+/* Square */
+.about-decor .a-square {
+  width: 110px !important;
+  height: 110px !important;
+  background: linear-gradient(135deg, rgba(0,179,255,0.16), rgba(127,90,255,0.16)) !important;
+  border-radius: 14px !important;
+  left: 14% !important;
+  bottom: 6% !important;
+  animation: aboutFloatY 9.5s ease-in-out infinite, aboutRotate 24s linear infinite;
+}
+
+@keyframes aboutRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes aboutRotateTiny {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes aboutPulse {
+  0% { transform: scale(1); opacity: 0.16; }
+  50% { transform: scale(1.12); opacity: 0.26; }
+  100% { transform: scale(1); opacity: 0.16; }
+}
+
+@keyframes aboutFloatDiag {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(12px,-14px) rotate(6deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+@keyframes aboutFloatY {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
+}
+
+/* Reduced motion: disable animations for users who prefer less movement */
+@media (prefers-reduced-motion: reduce) {
+  .about-decor .a-shape { animation: none !important; opacity: 0.12 !important; }
+}
+
+
+
